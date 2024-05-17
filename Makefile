@@ -200,31 +200,6 @@ youtube:
 		rm -rf ../../data/youtube_data/base_train/base-youtube-$$number.txt_* ; \
 		number=`expr $$number + 1` ; \
 	done
-	cd ../../data && mkdir -p test_attack
-	number=300 ; while [ $$number -le 399 ] ; do \
-		bin/unicorn/main filetype edgelist base ../../data/attack_data/base_test/base-attack-$$number.txt stream ../../data/attack_data/stream_test/stream-attack-$$number.txt decay 500 lambda 0.02 batch 2000 sketch ../../data/test_attack/sketch-attack-$$number.txt chunkify 1 chunk_size 50 ; \
-		rm -rf ../../data/attack_data/base_test/base-attack-$$number.txt.* ; \
-		rm -rf ../../data/attack_data/base_test/base-attack-$$number.txt_* ; \
-		number=`expr $$number + 1` ; \
-	done
-
-cnn:
-	cd ../../data && mkdir -p train_cnn
-	number=500 ; while [ $$number -le 599 ] ; do \
-		bin/unicorn/main filetype edgelist base ../../data/cnn_data/base_train/base-cnn-$$number.txt stream ../../data/cnn_data/stream_train/stream-cnn-$$number.txt decay 500 lambda 0.02 batch 2000 sketch ../../data/train_cnn/sketch-cnn-$$number.txt chunkify 1 chunk_size 50 ; \
-		rm -rf ../../data/cnn_data/base_train/base-cnn-$$number.txt.* ; \
-		rm -rf ../../data/cnn_data/base_train/base-cnn-$$number.txt_* ; \
-		number=`expr $$number + 1` ; \
-	done
-
-download:
-	cd ../../data && mkdir -p train_download
-	number=400 ; while [ $$number -le 499 ] ; do \
-		bin/unicorn/main filetype edgelist base ../../data/download_data/base_train/base-download-$$number.txt stream ../../data/download_data/stream_train/stream-download-$$number.txt decay 500 lambda 0.02 batch 2000 sketch ../../data/train_download/sketch-download-$$number.txt chunkify 1 chunk_size 50 ; \
-		rm -rf ../../data/download_data/base_train/base-download-$$number.txt.* ; \
-		rm -rf ../../data/download_data/base_train/base-download-$$number.txt_* ; \
-		number=`expr $$number + 1` ; \
-	done
 
 gmail:
 	cd ../../data && mkdir -p train_gmail
@@ -241,5 +216,32 @@ vgame:
 		bin/unicorn/main filetype edgelist base ../../data/vgame_data/base_train/base-vgame-$$number.txt stream ../../data/vgame_data/stream_train/stream-vgame-$$number.txt decay 500 lambda 0.02 batch 2000 sketch ../../data/train_vgame/sketch-vgame-$$number.txt chunkify 1 chunk_size 50 ; \
 		rm -rf ../../data/vgame_data/base_train/base-vgame-$$number.txt.* ; \
 		rm -rf ../../data/vgame_data/base_train/base-vgame-$$number.txt_* ; \
+		number=`expr $$number + 1` ; \
+	done
+
+download:
+	cd ../../data && mkdir -p train_download
+	number=400 ; while [ $$number -le 499 ] ; do \
+		bin/unicorn/main filetype edgelist base ../../data/download_data/base_train/base-download-$$number.txt stream ../../data/download_data/stream_train/stream-download-$$number.txt decay 500 lambda 0.02 batch 2000 sketch ../../data/train_download/sketch-download-$$number.txt chunkify 1 chunk_size 50 ; \
+		rm -rf ../../data/download_data/base_train/base-download-$$number.txt.* ; \
+		rm -rf ../../data/download_data/base_train/base-download-$$number.txt_* ; \
+		number=`expr $$number + 1` ; \
+	done
+
+cnn:
+	cd ../../data && mkdir -p train_cnn
+	number=500 ; while [ $$number -le 599 ] ; do \
+		bin/unicorn/main filetype edgelist base ../../data/cnn_data/base_train/base-cnn-$$number.txt stream ../../data/cnn_data/stream_train/stream-cnn-$$number.txt decay 500 lambda 0.02 batch 2000 sketch ../../data/train_cnn/sketch-cnn-$$number.txt chunkify 1 chunk_size 50 ; \
+		rm -rf ../../data/cnn_data/base_train/base-cnn-$$number.txt.* ; \
+		rm -rf ../../data/cnn_data/base_train/base-cnn-$$number.txt_* ; \
+		number=`expr $$number + 1` ; \
+	done
+
+attack:
+	cd ../../data && mkdir -p test_attack
+	number=300 ; while [ $$number -le 399 ] ; do \
+		bin/unicorn/main filetype edgelist base ../../data/attack_data/base_test/base-attack-$$number.txt stream ../../data/attack_data/stream_test/stream-attack-$$number.txt decay 500 lambda 0.02 batch 2000 sketch ../../data/test_attack/sketch-attack-$$number.txt chunkify 1 chunk_size 50 ; \
+		rm -rf ../../data/attack_data/base_test/base-attack-$$number.txt.* ; \
+		rm -rf ../../data/attack_data/base_test/base-attack-$$number.txt_* ; \
 		number=`expr $$number + 1` ; \
 	done
